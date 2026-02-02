@@ -19,9 +19,9 @@ nav {background-color: #00F0FF; padding: 10px;}
 body {background-color: black;}
 h1 {font-family:"Source Sans 3", sans-serif; color: white; font-weight: bold;}
 h2 {font-family:"Source Sans 3", sans-serif; color: white;}
-h3 {font-family:"Source Sans 3", sans-serif; color: white; font-weight: bold; font size: 40px;}
 p {font-family:"PSource Sans 3", sans-serif; color: white; font-size: 20px;}
 li {font-family:"Source Sans 3", sans-serif; color: white;}
+a {font-family:"Source Sans 3", sans-serif; color: white;}
 .game-grid {
 display: grid;
 grid-template-columns: repeat(3, 1fr);
