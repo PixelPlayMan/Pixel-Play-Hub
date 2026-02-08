@@ -21,7 +21,7 @@ body {background-color: black;}
 h1 {font-family:"Source Sans 3", sans-serif; color: white; font-weight: bold;}
 h2 {font-family:"Source Sans 3", sans-serif; color: white;}
 p {font-family:"PSource Sans 3", sans-serif; color: white; font-size: 20px;}
-li {font-family:"Source Sans 3", sans-serif; color: white;}
+li {font-family:"Source Sans 3", sans-serif; color: white; font-size: 20px;}
 a {font-family:"Source Sans 3", sans-serif; color: white;}
 .game-grid {
 display: grid;
