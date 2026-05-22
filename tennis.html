@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<style>
+#board{position:absolute; background-color:lightgreen;}
+#bat{position:absolute; left:10px; width:80px; height:20px; background-color:blue;}
+#ball{position:absolute; width:50px; height:50px; border-radius:25px; background-color:yellow;}
+</style>
+<body onmousemove="moveBat(event)">
+<link rel="icon" type="image/png" href="PixelPlay(Web_ALT).png">
+<title>Tennis</title>
+<div id="board"></div>
+<div id="ball"></div>
+<div id="bat"></div>
+<script>
+alert("Tennis: Move the mouse to control the bat, and don't let the ball get past you!")
+var x = 100, y = 100, speedX = 2, speedY = 2, batX = 0, score = 0;
+board.style.width = (window.innerWidth) + "px";
+board.style.height = (window.innerHeight) + "px";
+bat.style.top = ((window.innerHeight) - 50) + "px";
+function moveBat(event) {
+batX = event.clientX;
+bat.style.left = (batX - 40) + "px";
+}
+function moveBall () {
+x = x + speedX;
+y = y + speedY;
+ball.style.left = x + "px";
+ball.style.top = y + "px";
+if(x >= window.innerWidth - 50) {speedX=-2;}
+if(x <= 0) {speedX=2;}
+if(y <= 0) {speedY=2;}
+if(y + 50 >= bat.offsetTop && y + 50 <= bat.offsetTop + 20 && x + 50 > bat.offsetLeft && x < bat.offsetLeft + 80) {
+speedY = -2;
+score++;}
+if(y + 50 >= (window.innerHeight)) {
+alert("Game Over! Your score is: " + score);
+clearInterval(timer);
+location.reload();}
+}
+
+var timer = setInterval(moveBall, 10);
+</script>
+</body>
+</html>

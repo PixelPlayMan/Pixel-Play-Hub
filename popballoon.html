@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<style>
+#balloon {position:absolute;
+-webkit-transition:all 0.2s;
+height:150px;}
+body {background-color:yellow;}
+h1 {font-family:sans-serif}
+</style>
+<body>
+<link rel="icon" type="image/png" href="PixelPlay(Web_ALT).png">
+<title>Pop the Balloon</title>
+<img src="balloon.png" id="balloon">
+<h1 id="scoreB">Score: 0</h1>
+<h1 id="scoreH">High Score: 0</h1>
+<script>
+alert("Pop the Balloon: Click the balloon and get the highest score! Press Backspace to erase high score.")
+var Timer = setInterval(moveIt, 1000);
+balloon.addEventListener("click",Pop);
+window.addEventListener("resize", moveIt);
+var score = 0, count = 0, loc = localStorage.getItem("highScore"), highScore = Number(loc) || 0
+if (highScore > 0) {
+    scoreH.innerHTML = "High Score: " + highScore;
+}function Pop () {
+score++;
+scoreB.innerHTML="Score:"+score;
+balloon.style.height="20px";}
+function moveIt () {
+balloon.style.height="150px";
+balloon.style.left=Math.random()*(window.innerWidth - 150)+"px";
+balloon.style.top=Math.random()*(window.innerHeight - 150)+"px";
+count++;
+if (count >= (highScore + 5)){
+alert("Game Over!");
+clearInterval(Timer);
+if(score>highScore) {
+localStorage.setItem("highScore",score);}
+location.reload();}}
+document.onkeydown = eraseHighScore;
+function eraseHighScore (event) {
+var k = event.keyCode;
+event.preventDefault();
+if(k == 8) {localStorage.removeItem("highScore");}
+}
+</script>
+</body>
+</html>
